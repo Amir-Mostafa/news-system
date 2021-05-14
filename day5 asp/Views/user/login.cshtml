@@ -1,0 +1,31 @@
+﻿@model day5_asp.Models.user
+@{
+    ViewBag.Title = "login";
+}
+<h2>login</h2>
+
+<form class="justifi-content-center" method="post" action="login">
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email</label>
+        @Html.TextBoxFor(n => n.email, new { @class = "form-control" })
+        <span class="text-danger py-5 ">@Html.ValidationMessageFor(n => n.email)</span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">password</label>
+        @Html.PasswordFor(n => n.password, new { @class = "form-control" })
+        <span class="text-danger py-5 ">@Html.ValidationMessageFor(n => n.password)</span>
+    </div>
+    <div class="form-group">
+
+        <input id="rr" type="checkbox" name="check" value="true" />
+        <label for="rr">Remember me</label>
+        <span class="text-danger py-5 ">@Html.ValidationMessageFor(n => n.password)</span>
+    </div>
+    @if (ViewBag.status != null)
+    {
+        <p class="text-danger">@ViewBag.status</p>
+    }
+    
+    <button class="btn btn-primary">Login</button>
+</form> 

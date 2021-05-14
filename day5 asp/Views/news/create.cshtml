@@ -1,0 +1,52 @@
+﻿@model day5_asp.Models.news
+    
+@{
+    ViewBag.Title = "create";
+}
+
+<h2 class="text-center text-info " >Add News</h2>
+<form method="post" action="create" enctype="multipart/form-data">
+    <div class="create " style="display:flex; justify-content:center;">
+        <div style="">
+            <div class="form-group">
+                @Html.LabelFor(n => n.title)
+                @Html.TextBoxFor(n => n.title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(n => n.title)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(n => n.bref)
+
+                @Html.TextAreaFor(n => n.bref, new { @class = "form-control" })
+                @Html.ValidationMessageFor(n => n.bref)
+
+            </div>
+
+            <div class="form-group">
+
+                @Html.LabelFor(n => n.details)
+
+                @Html.TextBoxFor(n => n.details, new { @class = "form-control" })
+                @Html.ValidationMessageFor(n => n.details)
+            </div>
+
+            <div class="form-group">
+
+                @Html.LabelFor(n => n.cat_id)
+                @Html.DropDownListFor(n => n.cat_id, (SelectList)ViewBag.dept, new { @class = "form-control" })
+                @Html.ValidationMessageFor(n => n.cat_id)
+            </div>
+
+            <div class="form-group">
+                Select Image
+
+                <input type="file" name="file" class=" form-control" />
+
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
